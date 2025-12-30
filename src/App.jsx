@@ -111,7 +111,9 @@ export default function App() {
         <div className="brand">
           <div className="badge">LIVE</div>
           <div>
-            <div className="title">Build with AI - Hackathon</div>
+            <div className="title hero-title">
+              BUILD <span className="with">[WITH]</span> AI
+            </div>
             {/* <div className="subtitle">Время местное (GMT+5)</div> */}
           </div>
         </div>
@@ -174,7 +176,7 @@ export default function App() {
         </section>
 
         {/* NEXT */}
-        <section className="card card-next">
+        <section className="card card-next aside">
           <div className="cardTop">
             <span className="chip chip-next">ДАЛЕЕ</span>
             {next?.time && <span className="chip chip-time">{next.time}</span>}
