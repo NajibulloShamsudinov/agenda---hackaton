@@ -1,0 +1,252 @@
+:root {
+  --bg: #0b1220;
+  --card: rgba(255, 255, 255, 0.06);
+  --stroke: rgba(255, 255, 255, 0.14);
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.65);
+  --accent: #7c3aed;
+  --now: #22c55e;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(
+      1200px 600px at 20% 10%,
+      rgba(124, 58, 237, 0.35),
+      transparent 55%
+    ),
+    radial-gradient(
+      900px 500px at 85% 20%,
+      rgba(34, 197, 94, 0.22),
+      transparent 55%
+    ),
+    var(--bg);
+  color: var(--text);
+  overflow: hidden; /* чтобы не было скролла на ТВ */
+}
+
+.screen {
+  height: 100vh;
+  width: 100vw;
+  padding: 36px 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.badge {
+  background: rgba(34, 197, 94, 0.16);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  color: var(--now);
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.title {
+  font-size: 44px;
+  font-weight: 900;
+  color: #fff;
+}
+
+.subtitle {
+  margin-top: 6px;
+  font-size: 18px;
+  color: var(--muted);
+}
+
+.clock {
+  text-align: right;
+}
+
+.time {
+  font-size: 42px;
+  font-weight: 800;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+
+.tz {
+  font-size: 16px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.05)
+  );
+  border: 1px solid var(--stroke);
+  border-radius: 26px;
+  padding: 28px 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  position: relative;
+}
+
+.card-now {
+  border-color: rgba(34, 197, 94, 0.35);
+}
+
+.card-next {
+  border-color: rgba(124, 58, 237, 0.32);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.chip {
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.4px;
+  border: 1px solid transparent;
+}
+
+.chip-now {
+  background: rgba(34, 197, 94, 0.16);
+  border-color: rgba(34, 197, 94, 0.35);
+  color: var(--now);
+  animation: pulse 1.4s infinite;
+}
+
+.chip-next {
+  background: rgba(124, 58, 237, 0.18);
+  border-color: rgba(124, 58, 237, 0.35);
+  color: #d9c7ff;
+}
+
+.chip-time {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.cardTitle {
+  font-size: 54px;
+  font-weight: 900;
+  line-height: 1.05;
+  margin: 6px 0 16px;
+}
+
+.cardTitle.small {
+  font-size: 34px;
+}
+
+.cardSpeaker {
+  font-size: 26px;
+  color: var(--text);
+  opacity: 0.9;
+}
+
+.cardSpeaker.dim {
+  color: var(--muted);
+}
+
+.hint {
+  margin-top: 20px;
+  font-size: 16px;
+  color: var(--muted);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 16px;
+}
+
+.countdown {
+  margin-top: 18px;
+  font-size: 18px;
+  color: var(--muted);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 14px;
+}
+
+.timeline {
+  display: flex;
+  gap: 14px;
+  overflow: hidden;
+}
+
+.tick {
+  flex: 1;
+  min-width: 120px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 14px 16px;
+  opacity: 0.65;
+}
+
+.tick.active {
+  opacity: 1;
+  border-color: rgba(34, 197, 94, 0.45);
+  box-shadow: 0 12px 40px rgba(34, 197, 94, 0.14);
+  transform: scale(1.03);
+}
+
+.tickTime {
+  font-size: 18px;
+  font-weight: 900;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+
+.tickDot {
+  height: 8px;
+  width: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.35);
+  margin: 10px 0;
+}
+
+.tick.active .tickDot {
+  background: var(--now);
+}
+
+.tickText {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.25;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 0.85;
+  }
+}
